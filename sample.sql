@@ -10,4 +10,10 @@ WHERE ID > 2
 SELECT * 
 from test_table
 WHere ID < 10
-ORDER by 単価 DESC
+ORDER by 単価 DESC , 売上金額
+
+
+SELECT 商品名 , sum(売上金額), count(*) , count(商品名)
+FROM test_table
+GROUP by 商品名
+ORDER by sum(売上金額)
