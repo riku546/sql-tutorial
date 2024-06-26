@@ -48,3 +48,7 @@ INSERT INTO test_table (name , price , tax )
 VALUES('test' , 1000 , 0.1)
 
 
+SELECT A.氏名 , A.数学, B.国語
+from test01 as A
+INNER JOIN test02 as B
+on A.氏名 = B.氏名
