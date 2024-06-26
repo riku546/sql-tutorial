@@ -40,3 +40,10 @@ WHERE 売上金額 Between 10000 and 200000
 SELECT *
 from test_table 
 WHERE 商品名 Like '%A%'
+
+SELECT Distinct JOB
+from EMP
+
+
+INSERT INTO test_table (name , price , tax )
+VALUES('test' , 1000 , 0.1)
