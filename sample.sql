@@ -1,4 +1,3 @@
-
 SELECT ID , 数量
 FROM test_table
 
@@ -47,3 +46,5 @@ from EMP
 
 INSERT INTO test_table (name , price , tax )
 VALUES('test' , 1000 , 0.1)
+
+
