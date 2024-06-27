@@ -163,3 +163,17 @@ order by count(item_id) desc
 limit 5;
 
 
+select i.id , i.name , count(sale.item_id)
+from items as i 
+join sales_records as sale
+on i.id = sale.item_id
+group by sale.item_id
+order by count(sale.item_id) desc
+limit 5;
+
+
+
+select sum(i.price) as '総売上' , sum(i.price - i.cost) as '総利益'
+from items as i
+join sales_records as sale
+on i.id = sale.item_id
