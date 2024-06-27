@@ -52,3 +52,31 @@ SELECT A.氏名 , A.数学, B.国語
 from test01 as A
 INNER JOIN test02 as B
 on A.氏名 = B.氏名
+
+
+SELECT *
+from test_table
+WHERE not 商品名 = 'ニット';
+
+
+SELECT *
+from test_table
+WHere 商品名 is null;
+
+
+SELECT *
+from test_table
+WHere 商品名 is not null;
+
+
+SELECT *
+from test_table
+where 商品名 = 'ニット' and 売上金額 = 3000
+
+
+
+
+SELECT *
+from test_table
+where 商品名 = 'ニット' or 売上金額 = 3000
+
