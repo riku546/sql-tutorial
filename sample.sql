@@ -112,3 +112,19 @@ FROM players
 join countries
 on countries.id = players.country_id
 group by countries.name;
+
+
+
+select name , price , price - cost
+from items
+
+
+select avg(price - cost)
+from items;
+
+
+
+select name , price - cost
+from items
+order by price - cost desc
+limit 5;
