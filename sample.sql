@@ -80,3 +80,23 @@ SELECT *
 from test_table
 where 商品名 = 'ニット' or 売上金額 = 3000
 
+
+SELECT *
+from test_table
+ORDER by 売上金額 DESC
+limit 10;
+
+SELECT 商品名 as a
+from test_table as test
+
+
+SELECT *
+from test_tablea
+where > (
+    SELECT 売上金額
+    from test_table
+    where  単価 > 1000
+);
+
+
+
