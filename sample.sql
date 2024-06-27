@@ -128,3 +128,38 @@ select name , price - cost
 from items
 order by price - cost desc
 limit 5;
+
+
+select name , price
+from items
+where price  >   (
+select price
+from items
+where name = 'グレーパーカー'
+
+);
+
+
+select name , price - cost
+from items
+where price <= 7000 and  price -cost > (
+select price - cost
+from items
+where name = 'グレーパーカー'
+
+);
+
+
+
+select item_id , count(item_id)
+from sales_records
+group by item_id;
+
+
+select item_id , count(item_id)
+from sales_records
+group by item_id
+order by count(item_id) desc
+limit 5;
+
+
