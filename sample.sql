@@ -177,3 +177,40 @@ select sum(i.price) as '総売上' , sum(i.price - i.cost) as '総利益'
 from items as i
 join sales_records as sale
 on i.id = sale.item_id
+
+
+
+select purchased_at ,  count(purchased_at) as '販売個数'
+from sales_records
+group by purchased_at
+order by purchased_at;
+
+
+
+select purchased_at , sum(price) as '売上額'
+from items as i 
+join sales_records as sale
+on i.id = sale.item_id
+group by purchased_at
+order by purchased_at
+
+
+
+select u.id  , u.name , count(sale.user_id) as '購入数'
+from users as u
+join sales_records as sale
+on u.id = sale.user_id
+group by u.id
+having count(u.id) >= 10;
+
+
+select distinct u.id , u.name
+from users as u
+join sales_records as sale
+on u.id = sale.user_id
+where sale.item_id =  (
+select id
+from items
+where name = 'サンダル'
+
+);
