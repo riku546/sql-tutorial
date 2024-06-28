@@ -214,3 +214,22 @@ from items
 where name = 'サンダル'
 
 );
+
+
+
+
+select i.gender , sum(i.price) as '売上額'
+from sales_records as sale
+join items as i
+on sale.item_id = i.id
+group by i.gender;
+
+
+
+select i.id  , i.name , sum(price) as '売上額'
+from sales_records as sale
+join items as i
+on sale.item_id = i.id
+group by i.id
+order by sum(price) desc
+limit 5;
