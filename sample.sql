@@ -233,3 +233,38 @@ on sale.item_id = i.id
 group by i.id
 order by sum(price) desc
 limit 5;
+
+
+
+
+select i.id , i.name  , sum(price)
+from sales_records as sale
+join items as i
+on sale.item_id = i.id
+group by i.id
+having sum(price) > (
+select sum(price)
+from sales_records as sale
+join items as i
+on sale.item_id = i.id
+group by i.id
+having i.name = 'グレーパーカー'
+);
+
+
+Insert into students(name , course)
+values ('Kate'  , 'Java');
+
+
+
+update students
+set name = 'jordan' , course = 'HTML'
+WHERE id = 6;
+
+
+
+delete from students 
+where id = 7;
+
+
+
