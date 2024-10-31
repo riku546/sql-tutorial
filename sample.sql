@@ -267,4 +267,4 @@ delete from students
 where id = 7;
 
 
-
+select release_year , count(*) as books_num from books group by release_year having count(*) >= 2 order by books_num desc;
