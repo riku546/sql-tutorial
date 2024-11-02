@@ -269,3 +269,4 @@ where id = 7;
 
 select release_year , count(*) as books_num from books group by release_year having count(*) >= 2 order by books_num desc;
 select * from (select shohin_bunrui , count(*) as cnt_shohin from shohin group by shohin_bunrui )as shohin_bunrui_num where cnt_shohin >= 4;
+create view ViewRenshu5_1 (shohim_mei, hanbai_tanka , torokubi) as select shohin_mei , hanbai_tanka , torokubi from shohin where hanbai_tanka >= 1000 and torokubi = '2009-09-20';
