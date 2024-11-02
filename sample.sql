@@ -270,3 +270,4 @@ where id = 7;
 select release_year , count(*) as books_num from books group by release_year having count(*) >= 2 order by books_num desc;
 select * from (select shohin_bunrui , count(*) as cnt_shohin from shohin group by shohin_bunrui )as shohin_bunrui_num where cnt_shohin >= 4;
 create view ViewRenshu5_1 (shohim_mei, hanbai_tanka , torokubi) as select shohin_mei , hanbai_tanka , torokubi from shohin where hanbai_tanka >= 1000 and torokubi = '2009-09-20';
+ create view AvgTankaByBunrui as select shohin_id , shohin_mei , shohin_bunrui , hanbai_tanka , (select avg(hanbai_tanka) from shohin as s2 where s2.shohin_bunrui = s1.shohin_bunrui group by s2.shohin_bunrui ) as avg_hanbai_tanka from shohin as s1
