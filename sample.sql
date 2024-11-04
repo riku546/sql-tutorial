@@ -272,3 +272,6 @@ select * from (select shohin_bunrui , count(*) as cnt_shohin from shohin group b
 create view ViewRenshu5_1 (shohim_mei, hanbai_tanka , torokubi) as select shohin_mei , hanbai_tanka , torokubi from shohin where hanbai_tanka >= 1000 and torokubi = '2009-09-20';
  create view AvgTankaByBunrui as select shohin_id , shohin_mei , shohin_bunrui , hanbai_tanka , (select avg(hanbai_tanka) from shohin as s2 where s2.shohin_bunrui = s1.shohin_bunrui group by s2.shohin_bunrui ) as avg_hanbai_tanka from shohin as s1
  select count(case when hanbai_tanka <= 1000 then hanbai_tanka end) as low_price , count(case when hanbai_tanka between 1001 and 3000 then hanbai_tanka end) as mid_price , count(case when hanbai_tanka >= 3001 then hanbai_tanka end) as high_price from shohin;
+
+select id , name , (select case when salary < 50000 then '低' when salary between 50000 and 99999 then '中' when salary >= 100000 then '高' end) as level from employees;
+select id , name , (case when category in ('A' , 'B') then 'グループ１' when category = 'C' then 'グループ２' else 'その他' end) as category from products;
