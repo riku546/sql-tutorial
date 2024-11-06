@@ -276,4 +276,7 @@ create view ViewRenshu5_1 (shohim_mei, hanbai_tanka , torokubi) as select shohin
 select id , name , (select case when salary < 50000 then '低' when salary between 50000 and 99999 then '中' when salary >= 100000 then '高' end) as level from employees;
 select id , name , (case when category in ('A' , 'B') then 'グループ１' when category = 'C' then 'グループ２' else 'その他' end) as category from products;
 select gender , count(*) as num from authors group by gender order by num desc;
+
 select id , postion, name , height , weight from players where height > 195 union all select id , postion ,  name , height , weight from players where weight > 95 order by id;
+
+select p.id , p.price , s.saleNum from product as p inner join sale as s on p.id = s.id; 
