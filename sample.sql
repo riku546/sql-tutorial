@@ -280,3 +280,4 @@ select gender , count(*) as num from authors group by gender order by num desc;
 select id , postion, name , height , weight from players where height > 195 union all select id , postion ,  name , height , weight from players where weight > 95 order by id;
 
 select p.id , p.price , s.saleNum from product as p inner join sale as s on p.id = s.id; 
+select b.book_name , a.author_name from books as b inner join book_authors as ba on b.id = ba.book_id inner join authors as a on ba.author_id = a.id;
