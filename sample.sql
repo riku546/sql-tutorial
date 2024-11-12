@@ -645,4 +645,15 @@ select
             shohin_id
     ) as current_sum
 from
-    sh ohin;
+    shohin;
+
+select
+    shohin_id,
+    shohin_mei,
+    hanbai_tanka,
+    min(hanbai_tanka) over (
+        order by
+            shohin_id
+    )
+from
+    shohin;
