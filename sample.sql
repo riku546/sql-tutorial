@@ -657,3 +657,26 @@ select
     )
 from
     shohin;
+
+select
+    shohin_id,
+    shohin_mei,
+    hanbai_tanka,
+    avg(hanbai_tanka) over(
+        order by
+            shohin_id rows 2 preceding
+    ) as mov ing_avg
+from
+    shohin;
+
+select
+    shohin_id,
+    shohin_mei,
+    hanbai_tanka,
+    sum(hanbai_tanka) over (
+        order by
+            shohin_id rows between 1 precedi ng
+            and 1 following
+    ) as sum
+from
+    shohin;
