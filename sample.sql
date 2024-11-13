@@ -680,3 +680,6 @@ select
     ) as sum
 from
     shohin;
+
+
+select avg(amount) over (partition by store_id rows between 6 precedeing and current row order by sale_date) from sales; 
