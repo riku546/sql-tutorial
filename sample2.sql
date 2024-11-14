@@ -11,3 +11,6 @@ select name as "書籍名" , total_page as "総ページ数" from books;
 select * from books where release_year = 2020;
 select * from books where name = '宇宙の歴史';
 select * from books where name like '%マンガ%';
+select * from authors where gender = '男性' limit 3;
+select  * from books where release_year is not null;
+select * from books where total_page between 300 and 400;
