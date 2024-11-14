@@ -14,3 +14,8 @@ select * from books where name like '%マンガ%';
 select * from authors where gender = '男性' limit 3;
 select  * from books where release_year is not null;
 select * from books where total_page between 300 and 400;
+select * from books where release_year in (2004 , 2008 , 2018);
+select book_id , price * 1.1 as tax_included_price from book_sales;
+select * from books where total_page < 100;
+select * from stores where holiday <> '月曜日';
+select * from books where release_year >= 2000 and total_page <= 200;
