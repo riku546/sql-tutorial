@@ -25,3 +25,8 @@ select avg(total_page) from books;
 select max(total_page) , min(total_page) from books;
 select * from books order by release_year desc;
 select release_year , count(*) as books_num from books group by release_year order by books_num desc;
+select release_year , count(*) as books_num from books group by release_year having count(*) >= 2 order by books_num desc;
+insert into events values(3 , '2022 WEBデザイントレンド' , 100);
+select * from events;
+update events set max_num = 30 where id = 2;
+select  * from events;
