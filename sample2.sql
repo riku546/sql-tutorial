@@ -30,3 +30,8 @@ insert into events values(3 , '2022 WEBデザイントレンド' , 100);
 select * from events;
 update events set max_num = 30 where id = 2;
 select  * from events;
+delete from events where id = 2;
+select * from events;
+select * from books as b1 where total_page > (select b2.total_page from books as b2 where name = 'コードと回路');
+select * from books as b1 where release_year in (select b2.release_year from books as b2 where name in ('時短レシピ100' , 'かもめ飛行'));
+select b.name as book_name , a.name as author_name from books as b inner join book_authors as ba on b.id = ba.book_id inner join authors as a on  ba.author_id = a.id;
