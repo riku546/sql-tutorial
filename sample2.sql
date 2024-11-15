@@ -38,3 +38,5 @@ select b.name as book_name , a.name as author_name from books as b inner join bo
 select * from books where release_year is null;
 select name , total_page from books order by total_page desc;
 select c.name , count(*) as num from books as b  inner join book_categories as bc  on b.id = bc.book_id inner join categories as c on bc.category_id = c.id group by c.name  order by num desc , c.name limit 3;
+delete from events where id = 1;
+select * from events;
