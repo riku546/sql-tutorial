@@ -35,3 +35,6 @@ select * from events;
 select * from books as b1 where total_page > (select b2.total_page from books as b2 where name = 'コードと回路');
 select * from books as b1 where release_year in (select b2.release_year from books as b2 where name in ('時短レシピ100' , 'かもめ飛行'));
 select b.name as book_name , a.name as author_name from books as b inner join book_authors as ba on b.id = ba.book_id inner join authors as a on  ba.author_id = a.id;
+select * from books where release_year is null;
+select name , total_page from books order by total_page desc;
+select c.name , count(*) as num from books as b  inner join book_categories as bc  on b.id = bc.book_id inner join categories as c on bc.category_id = c.id group by c.name  order by num desc , c.name limit 3;
