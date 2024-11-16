@@ -44,3 +44,4 @@ select gender , count(*) as num from authors group by gender order by num desc;
 select s.name , sum(b.price * b.figure) from book_sales as b inner join stores as s on b.store_id = s.id group by s.name order by s.name;
 select b.name , bs.price , (bs.price * 0.1) as tax from books as b inner join book_sales as bs on b.id = bs.book_id;
 select b.name from books as b inner join book_sales as bs on b.id = bs.book_id where bs.store_id = (select id from stores where name = 'オンライン');
+select c.name, sum(price * figure) as sales from book_sales as bs inner join book_categories as bc on bs.book_id = bc.book_id inner join categories as c on bc.category_id = c.id group by c.id order by sales desc limit 3; 
