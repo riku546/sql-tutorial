@@ -12,7 +12,7 @@ select * from books where release_year = 2020;
 select * from books where name = '宇宙の歴史';
 select * from books where name like '%マンガ%';
 select * from authors where gender = '男性' limit 3;
-select  * from books where release_year is not null;
+select * from books where release_year is not null;
 select * from books where total_page between 300 and 400;
 select * from books where release_year in (2004 , 2008 , 2018);
 select book_id , price * 1.1 as tax_included_price from book_sales;
@@ -41,3 +41,4 @@ select c.name , count(*) as num from books as b  inner join book_categories as b
 delete from events where id = 1;
 select * from events;
 select gender , count(*) as num from authors group by gender order by num desc;
+select s.name , sum(b.price * b.figure) from book_sales as b inner join stores as s on b.store_id = s.id group by s.name order by s.name;
