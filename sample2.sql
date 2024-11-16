@@ -42,3 +42,5 @@ delete from events where id = 1;
 select * from events;
 select gender , count(*) as num from authors group by gender order by num desc;
 select s.name , sum(b.price * b.figure) from book_sales as b inner join stores as s on b.store_id = s.id group by s.name order by s.name;
+select b.name , bs.price , (bs.price * 0.1) as tax from books as b inner join book_sales as bs on b.id = bs.book_id;
+select b.name from books as b inner join book_sales as bs on b.id = bs.book_id where bs.store_id = (select id from stores where name = 'オンライン');
