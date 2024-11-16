@@ -40,3 +40,4 @@ select name , total_page from books order by total_page desc;
 select c.name , count(*) as num from books as b  inner join book_categories as bc  on b.id = bc.book_id inner join categories as c on bc.category_id = c.id group by c.name  order by num desc , c.name limit 3;
 delete from events where id = 1;
 select * from events;
+select gender , count(*) as num from authors group by gender order by num desc;
