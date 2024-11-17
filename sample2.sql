@@ -46,3 +46,4 @@ select b.name , bs.price , (bs.price * 0.1) as tax from books as b inner join bo
 select b.name from books as b inner join book_sales as bs on b.id = bs.book_id where bs.store_id = (select id from stores where name = 'オンライン');
 select c.name, sum(price * figure) as sales from book_sales as bs inner join book_categories as bc on bs.book_id = bc.book_id inner join categories as c on bc.category_id = c.id group by c.id order by sales desc limit 3; 
 select a.name , count(*) as published_title_num from books as b inner join book_authors as ba on b.id = ba.book_id inner join authors as a on ba.author_id = a.id group by a.name order by published_title_num desc , a.name limit 3;
+select b.name from books as b  inner join book_categories as bc on b.id = bc.book_id inner join categories as c on bc.category_id = c.id group by b.name having count(b.name) >= 2;
