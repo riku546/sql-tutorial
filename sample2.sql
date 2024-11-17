@@ -48,3 +48,7 @@ select c.name, sum(price * figure) as sales from book_sales as bs inner join boo
 select a.name , count(*) as published_title_num from books as b inner join book_authors as ba on b.id = ba.book_id inner join authors as a on ba.author_id = a.id group by a.name order by published_title_num desc , a.name limit 3;
 select b.name from books as b  inner join book_categories as bc on b.id = bc.book_id inner join categories as c on bc.category_id = c.id group by b.name having count(b.name) >= 2;
 select b.name from books as b inner join book_authors as ba on b.id = ba.book_id inner join authors as a on ba.author_id = a.id where (b.name like '%宇宙%' or b.name like '%星%') and a.gender = '女性';
+delete from events where id = 1;
+update events set max_num = 200 where id = 2;
+insert into events (id , name , max_num) values (3 , '古本まつり' , 75);
+select * from events;
