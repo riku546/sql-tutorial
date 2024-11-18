@@ -52,3 +52,5 @@ delete from events where id = 1;
 update events set max_num = 200 where id = 2;
 insert into events (id , name , max_num) values (3 , '古本まつり' , 75);
 select * from events;
+select shohin_id , shohin_mei , shohin_bunrui , hanbai_tanka , (select avg(hanbai_tanka) from shohin) as hanbai_tanka_all from shohin;
+select shohin_id , shohin_mei , shohin_bunrui , hanbai_tanka , (select avg(hanbai_tanka) from shohin as s2 where s2.shohin_bunrui = s1.shohin_bunrui group by shohin_bunrui) as avg_hanbai_tanka from shohin as s1;
