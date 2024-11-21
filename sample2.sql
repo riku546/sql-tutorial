@@ -12,7 +12,7 @@ select * from books where release_year = 2020;
 select * from books where name = '宇宙の歴史';
 select * from books where name like '%マンガ%';
 select * from authors where gender = '男性' limit 3;
-select  * from books where release_year is not null;
+select * from books where release_year is not null;
 select * from books where total_page between 300 and 400;
 select * from books where release_year in (2004 , 2008 , 2018);
 select book_id , price * 1.1 as tax_included_price from book_sales;
@@ -29,7 +29,7 @@ select release_year , count(*) as books_num from books group by release_year hav
 insert into events values(3 , '2022 WEBデザイントレンド' , 100);
 select * from events;
 update events set max_num = 30 where id = 2;
-select  * from events;
+select * from events;
 delete from events where id = 2;
 select * from events;
 select * from books as b1 where total_page > (select b2.total_page from books as b2 where name = 'コードと回路');
