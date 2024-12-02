@@ -29,7 +29,7 @@ select release_year , count(*) as books_num from books group by release_year hav
 insert into events values(3 , '2022 WEBデザイントレンド' , 100);
 select * from events;
 update events set max_num = 30 where id = 2;
-select  * from events;
+select * from events;
 delete from events where id = 2;
 select * from events;
 select * from books as b1 where total_page > (select b2.total_page from books as b2 where name = 'コードと回路');
@@ -58,3 +58,5 @@ select shohin_id , shohin_mei , shohin_bunrui , hanbai_tanka , (select avg(hanba
 select * from books where release_year is null;
 select name , total_page from books order by total_page desc;
 select c.name , count(*) as num from books as b inner join book_categories as bc on b.id = bc.book_id inner join categories as c on bc.category_id = c.id group by c.name order by num desc , c.name limit 3; 
+select e1.name , e1.salary from employees as e1 where e1.salary >= (select avg(e2.salary) from employees as e2 where e1.department_id = e2.department_id group by department_id) as avg_salary;
+
