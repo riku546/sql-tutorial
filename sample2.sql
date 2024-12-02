@@ -59,4 +59,5 @@ select * from books where release_year is null;
 select name , total_page from books order by total_page desc;
 select c.name , count(*) as num from books as b inner join book_categories as bc on b.id = bc.book_id inner join categories as c on bc.category_id = c.id group by c.name order by num desc , c.name limit 3; 
 select e1.name , e1.salary from employees as e1 where e1.salary >= (select avg(e2.salary) from employees as e2 where e1.department_id = e2.department_id group by department_id) as avg_salary;
-
+delete from events where id = 1;
+select * from events;
