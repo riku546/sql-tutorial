@@ -65,3 +65,5 @@ select gender , count(*) as num from authors  group by gender order by num desc;
 select b.name from books as b inner join book_sales as bs on b.id = bs.book_id group by b.name having sum(bs.stock) = 0 ;
 select s.name , sum(bs.price * bs.figure) as sales from book_sales as bs inner join stores as s on bs.store_id = s.id group by s.name order by s.name;
 select b.name , bs.price , (bs.price * 0.1) as tax from books as b inner join book_sales as bs on b.id = bs.book_id;
+select b.name  as name from books as b inner join book_sales as bs on b.id = bs.book_id inner join stores as s on bs.store_id = s.id where bs.book_id in (select bs2.book_id from book_sales as bs2 where bs2.store_id = 3) group by b.name having count(*) = 1 order by name;
+select c.name ,  sum(bs.price * bs.figure) as sales from categories as c inner join book_categories as bc on c.id = bc.category_id inner join book_sales as bs on bc.book_id = bs.book_id group by c.name order by sales desc limit 3;
