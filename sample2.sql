@@ -61,3 +61,7 @@ select c.name , count(*) as num from books as b inner join book_categories as bc
 select e1.name , e1.salary from employees as e1 where e1.salary >= (select avg(e2.salary) from employees as e2 where e1.department_id = e2.department_id group by department_id) as avg_salary;
 delete from events where id = 1;
 select * from events;
+select gender , count(*) as num from authors  group by gender order by num desc;
+select b.name from books as b inner join book_sales as bs on b.id = bs.book_id group by b.name having sum(bs.stock) = 0 ;
+select s.name , sum(bs.price * bs.figure) as sales from book_sales as bs inner join stores as s on bs.store_id = s.id group by s.name order by s.name;
+select b.name , bs.price , (bs.price * 0.1) as tax from books as b inner join book_sales as bs on b.id = bs.book_id;
