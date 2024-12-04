@@ -67,3 +67,10 @@ select s.name , sum(bs.price * bs.figure) as sales from book_sales as bs inner j
 select b.name , bs.price , (bs.price * 0.1) as tax from books as b inner join book_sales as bs on b.id = bs.book_id;
 select b.name  as name from books as b inner join book_sales as bs on b.id = bs.book_id inner join stores as s on bs.store_id = s.id where bs.book_id in (select bs2.book_id from book_sales as bs2 where bs2.store_id = 3) group by b.name having count(*) = 1 order by name;
 select c.name ,  sum(bs.price * bs.figure) as sales from categories as c inner join book_categories as bc on c.id = bc.category_id inner join book_sales as bs on bc.book_id = bs.book_id group by c.name order by sales desc limit 3;
+select a.name , count(*) as published_title_num from authors as a inner join book_authors as ba on a.id = ba.author_id group by a.name order by published_title_num desc , a.name limit 3;
+select b.name from books as b inner join book_categories as bc on b.id = bc.book_id group by b.name having  count(*) >= 2; 
+select b.name from books as b inner join book_authors as ba on b.id = ba.book_id inner join authors as a on ba.author_id = a.id where (b.name like '%宇宙%' or b.name like '%星%') and a.gender = '女性';
+delete from events where id = 1;
+update events set max_num = 200 where id = 2;
+insert into events values(3 , '古本まつり' , 75);
+select * from events;
