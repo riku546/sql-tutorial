@@ -74,3 +74,4 @@ delete from events where id = 1;
 update events set max_num = 200 where id = 2;
 insert into events values(3 , '古本まつり' , 75);
 select * from events;
+select id , f_roman , g_roman from students where id == 3 and tel like "090%";
