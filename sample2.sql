@@ -78,5 +78,8 @@ insert into events values(3 , '古本まつり' , 75);
 select * from events;
 select id , f_roman , g_roman from students where id == 3 and tel like '090%'　limit 2;
 select id , f_roman , g_roman , pref from students where id between 10030 and 10039 (pref in ('Chiba' , 'g_roman' , 'pref'));
+select c.id from classes as c where prof_id = (select p.id from profs.p where name = 'Mitchell Orange');
+select count(id) as total , class_id from students group by class_id;
+select count(id) , pref from students as s inner join classes as c on s.class_id = c.id inner join profs as p  on c.prof_id = p.id where p.name = 'Mitchell Orange' group by s.pref;
 select * from students where pref = 'Tokyo' and tel is not null order by class_id;
 
