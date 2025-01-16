@@ -82,4 +82,27 @@ select c.id from classes as c where prof_id = (select p.id from profs.p where na
 select count(id) as total , class_id from students group by class_id;
 select count(id) , pref from students as s inner join classes as c on s.class_id = c.id inner join profs as p  on c.prof_id = p.id where p.name = 'Mitchell Orange' group by s.pref;
 select * from students where pref = 'Tokyo' and tel is not null order by class_id;
+delete from players where name = 'Trout';
+update players set weight = 107 where name = 'Trout';
+select name from players where hometown like 'g%';
+select count(*) as n_players , team from players group by team;
+select name from players order by height desc;
+select name , weight from players where weight <= 98;
+INSERT INTO players (name, height, weight, team) VALUES
+('Ohtani', 193, 95, 'Angels'),
+('Sawamura', 183, 96, 'Red Sox'),
+('Trout', 188, 106, 'Angels'),
+('Darvish', 196, 99, 'Padres');
 
+CREATE TABLE players (
+    name TEXT PRIMARY KEY,
+    height INTEGER NOT NULL,
+    weight INTEGER NOT NULL,
+    team TEXT NOT NULL,
+    FOREIGN KEY (team) REFERENCES baseball_teams(name)
+);
+
+insert into baseball_teams values ('Angels' , 'LosAngeles');
+insert into baseball_teams values ('Red Sox' , 'Boston');
+insert into baseball_teams values ('Padres' , 'San Diego');
+create table baseball_teams (name text primary key , hometown text);
