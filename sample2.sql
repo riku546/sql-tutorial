@@ -106,3 +106,4 @@ insert into baseball_teams values ('Angels' , 'LosAngeles');
 insert into baseball_teams values ('Red Sox' , 'Boston');
 insert into baseball_teams values ('Padres' , 'San Diego');
 create table baseball_teams (name text primary key , hometown text);
+select b.name from books as b inner join book_sales as bs on b.id = bs.book_id  group by name having sum(stock) = 0;
