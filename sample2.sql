@@ -107,3 +107,5 @@ insert into baseball_teams values ('Red Sox' , 'Boston');
 insert into baseball_teams values ('Padres' , 'San Diego');
 create table baseball_teams (name text primary key , hometown text);
 select b.name from books as b inner join book_sales as bs on b.id = bs.book_id  group by name having sum(stock) = 0;
+select s.name , sum(price * figure) as sales from book_sales as bs inner join stores as s on bs.store_id = s.id group by s.name order by s.name;
+select b.name , bs.price , bs.price * 0.1 as tax from books as b inner join book_sales as bs on b.id = bs.book_id;
