@@ -111,3 +111,4 @@ select s.name , sum(price * figure) as sales from book_sales as bs inner join st
 select b.name , bs.price , bs.price * 0.1 as tax from books as b inner join book_sales as bs on b.id = bs.book_id;
 select a.name , count(*) as published_title_num from book_authors as ba inner join authors as a on ba.author_id = a.id inner join books as b on ba.book_id = b.id  group by a.name  order by published_title_num desc , a.name limit 3; 
 select b.name from books as b inner join book_categories as bc on b.id = bc.book_id inner join categories as c on c.id = bc.category_id group by b.name having count(*) >= 2;
+select b.name from books as b inner join book_authors as ba on b.id = ba.book_id inner join authors as a on ba.author_id = a.id where a.gender = '女性' and (b.name like '%宇宙%' or b.name like '%星%');
